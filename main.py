@@ -15,7 +15,7 @@ def get_token():
     return x
 
 
-cogs = [""]
+cogs = ["music", "admin"]
 bot = commands.Bot(command_prefix=get_prefix, owner_id=311178459919417344)
 
 
