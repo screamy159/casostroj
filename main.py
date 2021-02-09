@@ -1,7 +1,10 @@
 import discord
 from discord.ext import commands
 import database
+import os.path
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+token_path = os.path.join(BASE_DIR, "token.txt")
 
 def get_prefix(bot, message):
     if not message.guild:
@@ -10,12 +13,12 @@ def get_prefix(bot, message):
 
 
 def get_token():
-    with open("token.txt", "r") as fp:
+    with open(token_path, "r") as fp:
         x = fp.readline()
     return x
 
 
-cogs = [""]
+cogs = ["admin"]
 bot = commands.Bot(command_prefix=get_prefix, owner_id=311178459919417344)
 
 
