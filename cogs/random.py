@@ -9,7 +9,7 @@ class Random(commands.Cog):
     @commands.command(name="f")
     async def _sendF(self, ctx):
         message = await ctx.send("Press F to pay respect")
-        await message.add_reaction(":regional_indicator_f:")
+        await message.add_reaction("regional_indicator_f")
 
 
 def setup(bot):
