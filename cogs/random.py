@@ -7,10 +7,9 @@ class Random(commands.Cog):
         self.bot = bot
 
     @commands.command(name="f")
-    async def _sendF(self, ctx, reacton: discord.Emoji):
+    async def _sendF(self, ctx):
         message = await ctx.send("Press F to pay respect")
         await message.add_reaction("<:regional_indicator_f:>")
-        print(str(reacton))
 
 
 def setup(bot):
