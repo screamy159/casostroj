@@ -9,12 +9,12 @@ class Quotes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="newquote", aliases=["nq"])
+    @commands.command(name="newquote", aliases=["nq"], brief="Create new quote")
     async def _newQuote(self, ctx, *, quote: str):
         self.bot.db.new_quote(quote, ctx.author.name)
         await ctx.send("Quote added!")
 
-    @commands.command(name="listquotes", aliases=["listquote", "lq"])
+    @commands.command(name="listquotes", aliases=["listquote", "lq"], brief="List all current quotes")
     async def _listQuotes(self, ctx):
         async with ctx.channel.typing():
             quotes = self.bot.db.list_quotes()
