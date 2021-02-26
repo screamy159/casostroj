@@ -22,6 +22,17 @@ class db():
             self.cursor.execute(query, ())
             self.mydb.commit()
 
+    def new_quote(self, quote, author):
+        query = "INSERT INTO quotes(author, quote) VALUES (?, ?)"
+        self.cursor.execute(query, (author, quote,))
+        self.mydb.commit()
+
+    def list_quotes(self):
+        query = "SELECT * FROM quotes"
+        self.cursor.execute(query, ())
+        quotes = self.cursor.fetchall()
+        return quotes
+
     def fetch_prefix(self, gid):
         prefix_query = "SELECT prefix FROM servers WHERE id = ?"
         self.cursor.execute(prefix_query, (gid,))
