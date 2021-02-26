@@ -9,7 +9,9 @@ class db():
     def __init__(self):
         self.mydb = sqlite3.connect(self.db_path)
         self.cursor = self.mydb.cursor()
-
+        query = """CREATE TABLE servers NOT EXISTS (
+        id BIGINT PRIMARY KEY NOT NULL,
+        prefix VARCHAR(256) DEFAULT '.' NOT NULL);"""
     def fetch_prefix(self, gid):
         prefix_query = "SELECT prefix FROM servers WHERE id = ?"
         self.cursor.execute(prefix_query, (gid,))
