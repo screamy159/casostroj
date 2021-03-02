@@ -19,8 +19,9 @@ def get_token():
     return x
 
 
-cogs = ["admin", "random", "quotes"]
-bot = commands.Bot(command_prefix=get_prefix, owner_id=311178459919417344)
+cogs = ["admin", "random", "quotes", "polls"]
+bot = commands.Bot(command_prefix=get_prefix,
+                   owner_id=311178459919417344, intents=discord.Intents.default())
 
 
 @bot.event

@@ -12,13 +12,20 @@ class Random(commands.Cog):
         await message.add_reaction("🇫")
 
     @commands.command(name="cmds", brief="Show all commands")
-    async def _commands(self, ctx):
+    async def _commands(self, ctx, cog: str = None):
+        cogs = list(self.bot.cogs.keys())
+
         async with ctx.channel.typing():
             embed = discord.Embed(colour=0x8c8dee, title="Commands")
             for command in self.bot.walk_commands():
                 embed.add_field(name=command.name,
                                 value=command.brief, inline=True)
         await ctx.send(embed=embed)
+
+    @commands.command(name="cogs", brief="Get all cogs")
+    @commands.is_owner()
+    async def _getCogs(self, ctx):
+        await ctx.send(list(self.bot.cogs.keys()))
 
 
 def setup(bot):
