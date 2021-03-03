@@ -23,7 +23,12 @@ class Polls(commands.Cog):
     @commands.command(name="addoption", aliases=["ao", "addanswer"], brief="Add new option")
     @commands.guild_only()
     async def _addOption(self, ctx, qid: int, emoji: str, *, option: str):
-        userID, messageID = self.bot.db.get_poll(qid)
+        try:
+            userID, messageID = self.bot.db.get_poll(qid)
+        except TypeError:
+            await ctx.send("Pool does not exists", delete_after=5)
+            await ctx.message.delete()
+            return
         await ctx.message.delete()
         if userID != ctx.author.id:
             await ctx.send("You cannot do that", delete_after=5)
