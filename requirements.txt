@@ -6,3 +6,6 @@
 # D:\dev\python\casostroj\cogs\random.py: 1,2
 # D:\dev\python\casostroj\main.py: 1,2
 discord.py == 1.7.1
+
+# D:\dev\python\casostroj\main.py: 5
+python_dotenv == 0.17.0
