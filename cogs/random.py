@@ -22,6 +22,12 @@ class Random(commands.Cog):
                                 value=command.brief, inline=True)
         await ctx.send(embed=embed)
 
+    @commands.command(name="userinfo", brief="Get user info")
+    async def _userinfo(self, ctx, mbr: discord.Member = None):
+        if not mbr:
+            mbr = ctx.author
+        await ctx.send(f"{mbr.name}#{mbr.discriminator} account created at: {mbr.created_at}")
+
     @commands.command(name="cogs", brief="Get all cogs")
     @commands.is_owner()
     async def _getCogs(self, ctx):
